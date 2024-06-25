@@ -35,11 +35,11 @@ poetry install
 
 5. **Rename your notebook** Change the name of the notebook ``<sample_solution.ipynb>` to `<solution.ipynb>` and start writting your problem jointly with the solution. The main recommendation is to guide the user so that they can look for the information coherently. Propose a context and a motivation for your problem and the ideas of the challenge within the solution of this problem. The objective is also to keep candidates motivated at the moment of test.
 
-6. **Clean you notebook** Please ensure that your notebook is executed completely and that you provide an objective way to qualify the answer this can be using markdown notes or explicitly mentioning the expected answer is. (See [solutions.ipynb](sample_solution.ipynb) for details)
+6. **Clean you notebook** Please ensure that your notebook is executed completely and that you provide an objective way to qualify the answer this can be using markdown notes or explicitly mentioning the expected answer is. (See [solution.ipynb](sample_solution.ipynb) for details)
 
-7. **Create your problem**: Copy your `solutions.ipynb` file into a new file called `problem.ipynb`. This file will be edited to be the one read by the candidate so, the main objective will be to clear out expected answers that can be directly embedded into the files.
+7. **Create your problem**: Copy your `solution.ipynb` file into a new file called `problem.ipynb`. This file will be edited to be the one read by the candidate so, the main objective will be to clear out expected answers that can be directly embedded into the files.
 
-8. **Edit metadata for online execution** Once your `problem.ipynb` notebook is created edit the header of the notebook (See [problem.ipynb](sample_problem.ipynb) for details). In this case the main modification concerns the possibility to execute the pyhton instance from web services provided by third parties. Two proposals are given for the candidates to run their notebooks in case they do not dispose from local environments. 1. Use [Google Colab](colab.research.google.com/) 2. Use [Binder](http://mybinder.org). For this to work modify the snippet of code as follow: 
+8. **Edit metadata for online execution (badges)** Once your `problem.ipynb` notebook is created edit the header of the notebook (See [problem.ipynb](sample_problem.ipynb) for details). In this case the main modification concerns the possibility to execute the pyhton instance from web services provided by third parties. Two proposals are given for the candidates to run their notebooks in case they do not dispose from local environments. 1. Use [Google Colab](colab.research.google.com/) 2. Use [Binder](http://mybinder.org). For this to work modify the snippet of code as follow: 
 
 ```
 # Will run the notebook problem located at 1_exploratory_data_analysis/taxinyc_analysis/problem.ipynb on mybinder.org
@@ -47,8 +47,29 @@ poetry install
 # Run the same notebook but instead in Google Colab
 [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aladinoster/datascience-questions/blob/main/1_exploratory_data_analysis/taxinyc_analysis/problem.ipynb) # Will run the notebook 1_exploratory_data_analysis/taxinyc_analysis/problem.ipynb
 ```
-```
+
+The former should produce the following links (badges):
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Talan-TechForData/datascience-questions/HEAD?labpath=1_exploratory_data_analysis/taxinyc_analysis/problem.ipynb) 
+
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aladinoster/datascience-questions/blob/main/1_exploratory_data_analysis/taxinyc_analysis/problem.ipynb)
+
 
 For more information on how to use [Google Colab with GitHub](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb).
 
-9. Once you have edited this 
+9. **Commit your content**: Once you have edited your `solution.ipynb` and `problem.ipynb` verify that both are clean in terms of outcome. For that run: 
+
+```bash
+poetry run jupyter nbconvert --clear-output --inplace path/to/problem.ipynb
+poetry run jupyter nbconvert --clear-output --inplace path/to/solution.ipynb
+```
+
+Commit your content into the branch:
+
+```bash
+git add path/to/problem_name/problem.ipynb
+git add path/to/problem_name/solution.ipynb
+git add path/to/problem_name/data/*
+git commit -m "add: problem_name"
+git push origin main
+```
