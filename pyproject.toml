@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "datasciencequestions"
+name = "datasciencesolutions"
 version = "0.1.0"
 description = ""
 authors = ["Andres Ladino <andres.ladino@ratp.fr>"]
